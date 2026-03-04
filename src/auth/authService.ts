@@ -1,4 +1,5 @@
 import api from '../api/api';
+// import { useNavigate } from 'react-router-dom';
 
 export async function login(username: string, password: string): Promise<string> {
   try {
@@ -10,4 +11,11 @@ export async function login(username: string, password: string): Promise<string>
     console.error('Login failed:', error);
     throw error;
   }
+}
+
+export function logout() {
+  // const navigate = useNavigate();
+  localStorage.removeItem('token'); // Remove the token from localStorage
+  window.location.href = '/login'; // Redirect to login page after logout
+  // navigate('/login');
 }

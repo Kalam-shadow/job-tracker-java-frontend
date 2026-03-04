@@ -1,42 +1,139 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page Container */
+.page-container {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Header Styling */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.page-title {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Logo and animations */
 .logo {
-  height: 6em;
+  height: 5em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  transition: filter 300ms ease;
 }
 
-@keyframes logo-spin {
+.logo:hover {
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.4));
+}
+
+@keyframes fade-in {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Card Styling */
 .card {
+  background: white;
+  border-radius: 12px;
   padding: 2em;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  animation: fade-in 0.3s ease;
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  animation: fade-in 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1rem;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .header-actions button {
+    width: 100%;
+  }
+
+  .page-title {
+    font-size: 1.875em;
+  }
+
+  .card {
+    padding: 1.5em;
+  }
 }
