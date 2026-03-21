@@ -76,6 +76,7 @@ export default function Login() {
         </form>
 
         <div className="login-footer">
+          <p>Don't have an account? <a href="/register">Register here</a></p>
           <p>© 2026 Job Tracker. All rights reserved.</p>
         </div>
       </div>
